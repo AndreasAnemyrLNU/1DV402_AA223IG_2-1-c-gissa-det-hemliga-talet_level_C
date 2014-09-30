@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1DV402.S2.L1C.Properties;
+using System;
 
 namespace _1DV402.S2.L1C
 {

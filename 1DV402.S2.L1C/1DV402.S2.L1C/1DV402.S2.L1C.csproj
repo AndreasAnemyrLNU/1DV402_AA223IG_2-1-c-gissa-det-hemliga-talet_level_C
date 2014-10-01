@@ -48,6 +48,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="SecretNumber.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>

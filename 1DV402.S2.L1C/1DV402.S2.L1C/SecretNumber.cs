@@ -11,12 +11,22 @@ namespace _1DV402.S2.L1C
 
         private GuessedNumber[] _guessedNumbers;
         private int? _number;
-        public const int NumberOfGuesses = 7;
+        private const int MaxNumberOfGuesses = 7;
 
-        public bool CanMakeGuess{
-
-        }
 
 
     }
+
+    public enum Outcome
+    {
+        Indefinite,
+        Low,
+        Hogh,
+        Right,
+        NoMoreGuesses,
+        OldGuess
+    }
+
+
+
 }

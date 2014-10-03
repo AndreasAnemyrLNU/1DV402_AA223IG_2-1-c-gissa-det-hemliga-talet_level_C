@@ -69,9 +69,8 @@ namespace _1DV402.S2.L1C
         {
             Array.Clear(_guessedNumbers, 0, MaxNumberOfGuesses);
             //Slumptalet
-         //   Random rnd = new Random();
-         //   Number = rnd.Next();
-            Number = 8;
+            Random rnd = new Random();
+            Number = rnd.Next(1,100);
             //Sätter Count till 0. Kanske det räcker ?
             Count = 0;
             //Guess ska tilldelas värdet nu

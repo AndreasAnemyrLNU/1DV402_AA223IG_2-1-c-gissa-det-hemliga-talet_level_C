@@ -10,15 +10,14 @@ namespace _1DV402.S2.L1C
     {
         //Fält
 
-        //Klar, känns bra!
+        //GuessedNumber is used for holding guessed nr of current "game"
         private GuessedNumber[] _guessedNumbers;
-        //Klar känns bra!
+        //Secret nr of current game
         private int? _number;
-        //Klar - känns bra!
+        //How many guessest that it's llowed for ONE game?
         public const int MaxNumberOfGuesses = 7;
-        //Egenskaper
 
-        public bool CanMakeGuess //Klar - Se över hur värdet true tilkommer och ändras!!!!
+        public bool CanMakeGuess //Checks if nr of guesses has reach to nr of MaxNumberOfGuesses. If it's possible to make one more guesses...
         {
             get
             {   
@@ -32,8 +31,8 @@ namespace _1DV402.S2.L1C
                 }
             }
         }
-        public int Count { get; private set; } //Klar- känns helt ok. Init 0 någonstans?
-        public int? Guess //Klar -känns ok!
+        public int Count { get; private set; } //Counts how many guessings that has been made...
+        public int? Guess //Inited with null - Holds value of last guess.
         {
             get;
             set;
@@ -47,7 +46,10 @@ namespace _1DV402.S2.L1C
                 Array.Copy(_guessedNumbers, copyOfNumberArray, MaxNumberOfGuesses);
                 return copyOfNumberArray;
             }
-        }//Klar, känns bra!
+        }
+        /// <summary>
+        /// Property of secret nr (_number
+        /// </summary>
         public int? Number 
         {
             get
@@ -62,20 +64,23 @@ namespace _1DV402.S2.L1C
             {
                 _number = value;
             }
-        }//Klar, känns bra!
+        }
+        /// <summary>
+        /// Holds the outcome of last guessed nr. Different outcomes in public enum Outcome
+        /// </summary>
         public Outcome Outcome
         { get; private set; }
         public void Initialize()
         {
             Array.Clear(_guessedNumbers, 0, MaxNumberOfGuesses);
-            //Slumptalet
+            //Rand nr
             Random rnd = new Random();
-            Number = rnd.Next(1,100);
-            //Sätter Count till 0. Kanske det räcker ?
+            Number = rnd.Next(1,101);
+            //Init count to Zero
             Count = 0;
-            //Guess ska tilldelas värdet nu
+            //Init Guess with null
             Guess = null;
-            //Outcome ska tilldelas värdet outcome.Indefinite
+            //Init Outcome to outcome.Indefinite
             Outcome = Outcome.Indefinite;
 
         }
@@ -127,16 +132,19 @@ namespace _1DV402.S2.L1C
                 return Outcome.Right;
             }
         }
-
+        /// <summary>
+        /// Create array that can cold references to object of the Type GuessedNumber
+        /// </summary>
         public SecretNumber()
         {
-            //Skapar instanser av Arrayen _guessedNumbers.
             _guessedNumbers = new GuessedNumber[MaxNumberOfGuesses];
 
             Initialize();
         }
     }
-
+    /// <summary>
+    /// Outcome is responsible to hold the outcome of last guess/answer
+    /// </summary>
     public enum Outcome
     {
         Indefinite,
